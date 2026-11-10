@@ -20,3 +20,17 @@ model Student {
   major     String   @db.VarChar(50)
   createdAt DateTime @default(now())
 }
+
+model Subject {
+  id             Int      @id @default(autoincrement())
+  subjectCode    String   @unique @db.VarChar(20)
+  name           String   @db.VarChar(100)
+  objective      String   @db.Text
+  description    String   @db.Text
+  theoryHours    Int      @default(0) // ทฤษฎี
+  practiceHours  Int      @default(0) // ปฏิบัติ
+  credit         Float    // หน่วยกิต
+  teacher        String   @db.VarChar(100)
+  createdAt      DateTime @default(now())
+}
+
